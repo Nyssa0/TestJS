@@ -1,3 +1,5 @@
+// server.js
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -24,6 +26,18 @@ app.post('/enroll', (req, res) => {
     const { courses: newCourses } = req.body;
     const schedule = {};
 
+    // Check for overlaps with existing courses
+    for (const enrolledCourses of courses) {
+        for (const [subject, { day, time }] of Object.entries(enrolledCourses)) {
+            const key = `${day}-${time}`;
+            if (schedule[key]) {
+                return res.status(400).json({ message: 'Un cours est déjà inscrit à ce jour.' });
+            }
+            schedule[key] = subject;
+        }
+    }
+
+    // Check for overlaps within the new courses
     for (const [subject, { day, time }] of Object.entries(newCourses)) {
         const key = `${day}-${time}`;
         if (schedule[key]) {
