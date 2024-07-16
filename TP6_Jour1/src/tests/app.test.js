@@ -1,7 +1,8 @@
 // tests/app.test.js
 
-const { app } = require('../server');
+const app = require('../../server');
 const request = require('supertest');
+
 describe('POST /submit', () => {
     it('should return 200 for valid input', async () => {
         const response = await request(app).post('/submit').send({
@@ -11,6 +12,7 @@ describe('POST /submit', () => {
         expect(response.status).toBe(200);
         expect(response.body.message).toBe('Formulaire reçu!');
     });
+
     it('should return 400 for missing fields', async () => {
         const response = await request(app).post('/submit').send({
             name: '',

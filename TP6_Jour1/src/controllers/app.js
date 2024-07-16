@@ -1,3 +1,5 @@
+// controllers/app.js
+
 document.getElementById('contactForm').addEventListener('submit', async function (event) {
     event.preventDefault();
     const name = document.getElementById('name').value;

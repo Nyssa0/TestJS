@@ -1,7 +1,8 @@
 // tests/server.test.js
 
-const { app } = require('../server');
+const app = require('../../server');
 const request = require('supertest');
+
 describe('GET /courses', () => {
     it('should return list of courses', async () => {
         const response = await request(app).get('/courses');

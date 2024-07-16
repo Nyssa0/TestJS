@@ -1,7 +1,8 @@
 // tests/enroll.test.js
 
-const { app } = require('../server');
+const app = require('../../server');
 const request = require('supertest');
+
 describe('POST /enroll', () => {
     it('should enroll courses successfully', async () => {
         const response = await request(app).post('/enroll').send({
@@ -14,12 +15,12 @@ describe('POST /enroll', () => {
         expect(response.status).toBe(200);
         expect(response.body.message).toBe('Inscription aux cours réussie!');
     });
+
     it('should return error for overlapping courses', async () => {
         await request(app).post('/enroll').send({
             courses: {
                 maths: { day: '1', time: 'morning' },
-                physics: { day: '1', time: 'morning' }, //
-                Conflit
+                physics: { day: '1', time: 'morning' }, // Conflit
             }
         });
         const response = await request(app).post('/enroll').send({

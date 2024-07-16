@@ -1,3 +1,5 @@
+// models/enroll.js
+
 document.getElementById('courseForm').addEventListener('submit', async function (event) {
     event.preventDefault();
     const courses = {
@@ -16,8 +18,7 @@ document.getElementById('courseForm').addEventListener('submit', async function 
         if (schedule[key]) {
             isValid = false;
             alert(`Erreur: ${subject.charAt(0).toUpperCase()
-                + subject.slice(1)} ne peut pas être pris le même jour et à
-    la même heure qu'un autre cours.`);
+                + subject.slice(1)} ne peut pas être pris le même jour et à la même heure qu'un autre cours.`);
             break;
         }
         schedule[key] = subject;
