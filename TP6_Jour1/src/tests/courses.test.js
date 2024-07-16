@@ -1,6 +1,6 @@
 // test/course.test.js
 
-const { app } = require('../../server');
+const app  = require('../../server');
 const request = require('supertest');
 
 describe('GET /courses', () => {

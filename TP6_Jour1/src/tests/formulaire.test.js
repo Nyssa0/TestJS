@@ -1,6 +1,6 @@
 // tests/formulaire.test.js
 
-const { app } = require('../../server');
+const app  = require('../../server');
 const request = require('supertest');
 
 describe('POST /submit', () => {
