@@ -42,7 +42,7 @@ describe('Order Creation and Member Association Integration Tests', () => {
     describe('POST /orders', () => {
         it('devrait créer une commande et l\'associer au membre', async () => {
             const orderData = {
-                memberId: memberId.toString(),
+                memberId: memberId,
                 items: [
                     { productId: '1', quantity: 2 },
                     { productId: '2', quantity: 1 }
