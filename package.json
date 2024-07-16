@@ -6,7 +6,7 @@
   "scripts": {
     "test:unit": "jest __tests__/unit",
     "test:server": "jest __tests__/server.test.js",
-    "test:inte": "jest __tests__/integration --detectOpenHandles"
+    "test:inte": "jest __tests__/integration"
   },
   "keywords": [],
   "author": "",

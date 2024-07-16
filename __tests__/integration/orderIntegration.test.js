@@ -13,7 +13,7 @@ describe('Order Creation and Member Association Integration Tests', () => {
 
     beforeAll(async () => {
         console.log('Connecting to MongoDB...')
-        client = await MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
+        client = await MongoClient.connect(url);
         db = client.db(dbName);
 
         const memberData = {

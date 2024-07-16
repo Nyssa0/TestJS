@@ -12,8 +12,7 @@ describe('Member Registration and Database Save Integration Tests', () => {
 
     beforeAll(async () => {
         console.log('Connecting to MongoDB...')
-        console.log('url:', url)
-        client = await MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
+        client = await MongoClient.connect(url);
         db = client.db(dbName);
         server = app.listen(0);
     });
