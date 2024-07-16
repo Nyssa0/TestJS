@@ -9,7 +9,7 @@ describe('POST /enroll', () => {
             courses: {
                 maths: { day: '1', time: 'morning' },
                 physics: { day: '2', time: 'afternoon' },
-                // Autres matières...
+                english: { day: '3', time: 'morning' },
             }
         });
         expect(response.status).toBe(200);

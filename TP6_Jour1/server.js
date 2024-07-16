@@ -1,5 +1,3 @@
-// server.js
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -7,6 +5,8 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'src/views')));
+app.use('/controllers', express.static(path.join(__dirname, 'src/controllers')));
+app.use('/models', express.static(path.join(__dirname, 'src/models')));
 
 // In-memory storage for simplicity
 let courses = [];
