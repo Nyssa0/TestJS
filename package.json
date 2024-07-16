@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:unit": "jest __tests__/unit"
+    "test:unit": "jest __tests__/unit",
+    "test:server": "jest __tests__/server.test.js",
+    "test:inte": "jest __tests__/integration/memberIntegration.test.js"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +15,10 @@
     "jest": "^29.7.0",
     "selenium-webdriver": "^4.22.0",
     "supertest": "^7.0.0"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongodb": "^6.8.0",
+    "mongoose": "^8.5.1"
   }
 }
