@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
 
 const app = express();
 app.use(bodyParser.json());
@@ -12,7 +12,6 @@ let db;
 async function connectToDatabase() {
     try {
         const client = await MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
-        console.log('Connecté à MongoDB');
         db = client.db(dbName);
     } catch (err) {
         console.error('Erreur de connexion à MongoDB :', err);
@@ -55,9 +54,23 @@ app.post('/register', async (req, res) => {
     }
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Serveur en écoute sur http://localhost:${PORT}`);
+app.post('/orders', async (req, res) => {
+    const { memberId, items, totalPrice } = req.body;
+
+    try {
+        const existingMember = await db.collection('members').findOne({ _id: new ObjectId(memberId) });
+        if (!existingMember) {
+            return res.status(400).json({ error: 'Membre non trouvé' });
+        }
+
+        const result = await db.collection('orders').insertOne({ memberId: new ObjectId(memberId), items, totalPrice });
+        const orderId = result.insertedId;
+
+        res.status(201).json({ orderId, message: 'Commande créée avec succès' });
+    } catch (err) {
+        console.error('Erreur lors de la création de la commande :', err);
+        res.status(500).json({ error: err.message });
+    }
 });
 
 module.exports = app;

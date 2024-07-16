@@ -4,6 +4,7 @@ const app = require('../../src/app');
 
 const url = "mongodb+srv://Nyssa:Hassina@cluster0.uxi6e.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 const dbName = 'TestsJS';
+let server;
 
 describe('Member Registration and Database Save Integration Tests', () => {
     let client;
@@ -14,10 +15,12 @@ describe('Member Registration and Database Save Integration Tests', () => {
         console.log('url:', url)
         client = await MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
         db = client.db(dbName);
+        server = app.listen(0);
     });
 
     afterAll(async () => {
         await client.close();
+        server.close();
     });
 
     beforeEach(async () => {
