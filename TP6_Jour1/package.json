@@ -1,0 +1,22 @@
+{
+  "name": "tp6_jour1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node start.js",
+    "selenium": "node seleniumTest.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "jest": "^29.7.0",
+    "path": "^0.12.7",
+    "selenium-webdriver": "^4.22.0",
+    "supertest": "^7.0.0"
+  }
+}
