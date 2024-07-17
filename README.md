@@ -48,10 +48,10 @@ npm run test:server
 
 ## Détails
 Nous avons suivi la méthode TDD pour réaliser ce projet. Nous avons commencé par écrire les tests unitaires, puis le test serveur et enfin les tests d'intégration.
-Par manque de temps nous n'avons pas pu développé les controllers et les routes car ces derniers n'étaient pas nécessaires pour nos tests.
+Par manque de temps, nous n'avons pas pu développer les controllers et les routes, car ces derniers n'étaient pas nécessaires pour nos tests.
 
 ## Problèmes rencontrés
 
-Les test d'intégration fonctionne lorsqu'on les lancent séparément, cependant, lorsqu'on les lance tous en même temps, ils échouent une fois sur quatre.
-De plus, Jest semble tourné en boucle lorsqu'on lance les tests d'intégration. Sur un IDE cela ne pose pas trop de problème car ce dernier effectue un force quit après un certain timeout, 
+Les tests d'intégration fonctionnent lorsqu'on les lance séparément, cependant, lorsqu'on les lance tous en même temps, ils échouent une fois sur quatre.
+De plus, Jest semble tourné en boucle lorsqu'on lance les tests d'intégration. Sur un IDE cela ne pose pas trop de problème, car ce dernier effectue un force quit après un certain temps, 
 mais Github Actions ne le fait pas, ce qui le fait tourner indéfiniment. Nous avons essayé de trouver une solution à ces problèmes mais sans succès.
